@@ -1,13 +1,26 @@
 <?php
 
-try {
-    $pdo = new PDO("mysql:dbname=loja;host=localhost","root", "");
+define("__HOST__", "localhost");
+define("__USER__", "root");
+define("__PASS__", "");
+define("__DATABASE__", "loja");
 
-} catch (PDOException $th) {
-    echo "Erro com o banco de dados: " . $th;
+function getConnection()
+{
+    try {
+        $k = 'strval';
+        $cx = new PDO("mysql:host={$k(__HOST__)}; dbname={$k(__DATABASE__)}", __USER__, __PASS__)
+            or die("Error when trying to connect to the database");
+        $cx->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        return $con;
+    } catch (PDOException $e) {
+        echo "Error when connect to database. Erro: {$e->getMessage()}";
+   
+exit;
+    }
 }
-catch (Exception $th) {
-    echo "Erro com o banco de dados: " . $th;
-}
+
+getConnection();
 
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
