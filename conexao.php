@@ -12,6 +12,6 @@ catch (Exception $th) {
 
 try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (\Throwable $th) {
-    echo "Erro: " . $th;
+} catch (\Throwable $e) {
+    echo "Erro: " . $e;
 }
