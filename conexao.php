@@ -21,12 +21,16 @@ exit;
     }
 }
 
-<<<<<<< HEAD
-getConnection();
-=======
-try {
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (\Throwable $e) {
-    echo "Erro: " . $e;
+function cadastrarProduto($nome, $preco, $estoque, $numero, $codigo, $marca)
+{
+    
+$cmd = getConnection();
+$cmd->prepare("INSERT INTO produto(:n, :p, :e, :n, :c, :m");
+$cmd->bindValue(":n", $nome);
+$cmd->bindValue(":p", $preco);
+$cmd->bindValue(":e", $estoque);
+$cmd->bindValue(":n", $numero);
+$cmd->bindValue(":c", $codigo);
+$cmd->bindValue(":m", $marca);
+
 }
->>>>>>> 9792f489e74c0303c082934794aee501e00366bf
